@@ -1,0 +1,16 @@
+<ion-card>
+  <ion-img [src]='"data:image/jpeg;base64,"+ file.thumbnail'></ion-img>
+  <!-- <img [src]='file.fileUrl | image' /> -->
+  <ion-card-header class="ion-no-padding">
+    <ion-item lines="none" class="item-multiple-inputs">
+      <ion-checkbox mode="ios" color="gray" (ionChange)="addToSelected()"></ion-checkbox>
+      <ion-label class="ion-text-wrap ion-text-center" mode="ios">
+        <p><b>{{file?.name}}</b></p>
+        <p>{{util.formatCameraDate(file.dateTimeZone)}}</p>
+      </ion-label>
+      <ion-icon class="ion-margin" name="download-outline" (click)="downloadImg()" *ngIf="!downloading"></ion-icon>
+      <app-spinner class="ion-margin" *ngIf="downloading"></app-spinner>
+      <ion-icon class="ion-margin" name="close" (click)="deleteImage()"></ion-icon>
+    </ion-item>
+  </ion-card-header>
+</ion-card>

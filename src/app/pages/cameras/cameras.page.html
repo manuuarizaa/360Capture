@@ -1,0 +1,14 @@
+<app-header title="Cameras"></app-header>
+
+<ion-content>
+    <ion-item lines="none" button (click)="goToRegisterDevice()" detail color="gray">
+        <ion-label>
+            Connect new camera
+        </ion-label>
+    </ion-item>
+
+    <ion-list mode="md" class="ion-no-padding" *ngFor = "let cam of cameras; let i = index">
+        <app-camera [camera]='cam' [goToGallery]='goToGallery.bind(this, i)' [deleteCamera]='deleteCamera.bind(this, i)'></app-camera>
+    </ion-list>
+
+</ion-content>

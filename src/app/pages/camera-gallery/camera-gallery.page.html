@@ -1,0 +1,24 @@
+<app-header [title] = 'name' [backButton] = 'backButton' backRoute="tabs/cameras"></app-header>
+
+<ion-content>
+  <app-spinner *ngIf="loading"></app-spinner>
+  <ion-item lines="none">
+    <ion-label>
+        <ion-button (click)="takePhoto()" *ngIf="!loading" color="gray" expand="full" shape="round" mode="md" size="small" class="button-icon-only-camera">
+            <ion-icon slot="icon-only" name="camera"></ion-icon>
+        </ion-button>
+    </ion-label>
+    <ion-icon name="trash" color="pink" (click)="requestDeleteImages()" *ngIf="selectedFiles.length > 0"></ion-icon>
+  </ion-item>
+  <!-- <app-camera-gallery [files]='files'></app-camera-gallery> -->
+  <ion-list mode="md" class="ion-no-padding" *ngFor="let file of files">
+    <app-camera-picture [file]='file' [deleteImage]='requestDeleteImage.bind(this, file)' [downloadImage]='downloadImage.bind(this, file)' [addToSelected]='addToChecked.bind(this, file)'></app-camera-picture>
+  </ion-list>
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMoreImages($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="dots"
+      loadingText="Loading more images...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

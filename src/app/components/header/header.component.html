@@ -1,0 +1,13 @@
+<ion-header mode="ios" collapse="fade" class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" *ngIf="backButton">
+      <ion-back-button color="gray"
+          [defaultHref] = 'backRoute'
+          [text]= 'backText'
+          [icon]= 'icon'
+      >
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title color="gray"> {{title}}</ion-title>
+  </ion-toolbar>
+</ion-header>

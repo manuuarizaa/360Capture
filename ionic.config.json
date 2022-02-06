@@ -1,0 +1,7 @@
+{
+  "name": "360capture",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

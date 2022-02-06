@@ -1,0 +1,6 @@
+{
+	"appId": "com.360capture",
+	"appName": "360capture",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

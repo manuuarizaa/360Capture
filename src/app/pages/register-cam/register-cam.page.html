@@ -1,0 +1,34 @@
+<app-header title="Connect camera" [backButton]='backButton' backRoute="tabs/cameras"></app-header>
+
+<ion-content>
+    <ion-item lines="none" color="gray">
+        <ion-label>Serial No.</ion-label>
+        <ion-input id="serialNumber" placeholder="XX12345678"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" color="gray" class="ion-margin-top" *ngIf="needPassword">
+        <ion-label>Password</ion-label>
+        <ion-input id="passwordCam" placeholder="12345678" type="password"></ion-input>
+    </ion-item>
+    
+    <ion-item mode="ios" lines="none" class="ion-margin-top">
+        <ion-checkbox slot="start" checked (ionChange)="changeDefaultPassword()"></ion-checkbox>
+        <ion-label>Use the default password</ion-label>
+    </ion-item>
+
+    <ion-img src='../../../assets/images/infoCamera.jpg' class="ion-margin-top"></ion-img>
+
+    <ion-button (click)="registerDevice()" expand="full" color="pink" class="ion-no-margin" *ngIf="!registering">
+        <ion-icon slot="end" name="wifi"></ion-icon>
+        Connect
+    </ion-button>
+
+    <app-spinner *ngIf="registering"></app-spinner>
+
+</ion-content>
+
+<ion-footer class="ion-no-border">
+    <ion-toolbar>
+        <app-permissions></app-permissions>
+    </ion-toolbar>
+</ion-footer>

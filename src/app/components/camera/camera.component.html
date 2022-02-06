@@ -1,0 +1,12 @@
+<ion-card>
+  <ion-item lines="none">
+    <ion-thumbnail slot="start" (click)="goToGallery()">
+      <ion-img src='../../../assets/images/ricohImage.jpg'></ion-img>
+    </ion-thumbnail>
+    <ion-label class="ion-text-wrap ion-text-center" mode="ios" (click)="goToGallery()">
+      <p><b>{{camera?.model}}</b></p>
+      <p>SN: {{camera?.serialNumber}}</p>
+    </ion-label>
+    <ion-icon slot="end" name="close" (click)="deleteCamera()"></ion-icon>
+  </ion-item>
+</ion-card>
